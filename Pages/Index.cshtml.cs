@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BuffMail.Models;
 
 namespace BuffMail_Management.Pages;
 
