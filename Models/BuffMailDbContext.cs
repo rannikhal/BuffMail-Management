@@ -11,6 +11,5 @@ namespace BuffMail.Models
         public DbSet<Staff> Staff {get;set;} = default!;
         public DbSet<Resident> Resident {get;set;} = default!;
         public DbSet<Package> Package {get;set;} = default!;
-        public DbSet<Unit> Unit {get;set;} = default!;
     }
 }
