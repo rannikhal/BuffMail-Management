@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AolsigM/AT2XFaerh2hq7DZaHZAzbkRW2KLJfO1duE4433iVlmEYjFqk1pen0M5lAYP5MjKRwSEhFTqbkHEqbA==",
+  "dgSpecHash": "/bRZQzWm6ED/h5agA9X0oYhIjR5Gp9nwKXdUr0hzRd71zm25pi3x4JsrNQKBhRvrc9PUyskX1e7EjOFZLSjynA==",
   "success": true,
   "projectFilePath": "C:\\Users\\giank\\Documents\\CIDM 4360\\BuffMail-Management\\BuffMail-Management.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\giank\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\giank\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\giank\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\giank\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",

@@ -23,7 +23,10 @@ namespace BuffMail_Management.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DeliveryDate")
+                    b.Property<DateTime>("InProcessDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("OutProcessDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PackageStatus")
@@ -38,6 +41,11 @@ namespace BuffMail_Management.Migrations
 
                     b.Property<int>("ResidentID")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("TrackingCode")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("PackageID");
 

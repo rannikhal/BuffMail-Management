@@ -1,0 +1,83 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">BuffMail Management</h1>
+</div>
+
+<div>
+    <h3>Packages Awaiting Pickup</h3>
+
+    @* checks if there are any records in the table and shows a message if there are none *@
+    @if (Model.PackagesAwaitingPickup == null || !Model.PackagesAwaitingPickup.Any())
+    {
+        <p>There are no packages awaiting pick-up.</p>
+    }
+    else
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Resident</th>
+                    <th scope="col">Unit Number</th>
+                    <th scope="col">Postal Service Agency</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Tracking Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* iterates through all the packages awaiting pick up and displays the info on a table *@
+                @foreach(var p in Model.PackagesAwaitingPickup)
+                {
+                    <tr>
+                        <td><a asp-page="./Resident" asp-route-id="@p.Resident.ResidentID">@Html.DisplayFor(modelItem => p.Resident.Name)</a></td>
+                        <td><a asp-page="./Resident" asp-route-id="@p.Resident.ResidentID">@Html.DisplayFor(modelItem => p.Resident.UnitNumber)</a></td>
+                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">@Html.DisplayFor(modelItem => p.PostalServiceAgency)</a></td>
+                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">@Html.DisplayFor(modelItem => p.InProcessDate)</a></td>
+                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">@Html.DisplayFor(modelItem => p.TrackingCode)</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<div>
+    @* checks if there are any records in the table and omits the table if there are none *@
+    @if (Model.UnkownPackages == null || !Model.UnkownPackages.Any())
+    {
+
+    }
+    else
+    {
+        <hr>
+
+        <h3>Unknown Packages/Awaiting Return to Sender</h3>
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Postal Service Agency</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Tracking Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* iterates through all the unknown packages that need to be returned to sender and displays the info on a table *@
+                @foreach(var p in Model.UnkownPackages)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
+                        <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
+                        <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+

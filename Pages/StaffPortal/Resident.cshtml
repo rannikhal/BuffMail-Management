@@ -1,0 +1,45 @@
+@page
+@model ResidentModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">BuffMail Management</h1>
+</div>
+
+<div>
+    <h3>Resident</h3>
+
+    <p>Resident: @Model.SelectedResident.Name</p>
+    <p>Unit #: @Model.SelectedResident.UnitNumber</p>
+
+    <h4>Packages</h4>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Postal Service Agency</th>
+                <th scope="col">Delivery Date</th>
+                <th scope="col">Pick-Up Date</th>
+                <th scope="col">Tracking Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            @* iterates through all the unknown packages that need to be returned to sender and displays the info on a table *@
+            @foreach(var p in Model.SelectedResident.Packages)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
+                    <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
+                    <td>@Html.DisplayFor(modelItem => p.OutProcessDate)</td>
+                    <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @* <p>Postal Service Agency: @Model.SelectedPackage.PostalServiceAgency</p>
+    <p>Delivery Date: @Model.SelectedPackage.InProcessDate</p>
+    <p>Tracking Code: @Model.SelectedPackage.TrackingCode</p> *@
+
+</div>

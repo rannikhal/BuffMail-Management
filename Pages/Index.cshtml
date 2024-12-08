@@ -5,10 +5,53 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">BuffMail Management</h1>
-    <hr/>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    @* Image generated using Gemini and the following prompts: 
 
-    <h2>Log In</h2>
-    <label><input type="text">Username:</label>
-    <label><input type="password">Password:</label>
+                        generate an image for a mailing processing system for a university with a logo of a buffalo as the courier
+
+                        make the image a logo and the colors of the university are maroon
+
+                        the service is called BuffMail. have that be a part of the logo and make the logo have a transparent background *@
+                    <img src="/Images/BuffMail_Logo.png" class="img-fluid" alt="BuffMail Logo">
+
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form method="post">
+                        <h3>Staff Log In</h3>
+                        @* Email input *@
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="form3Example3" asp-for="InputUsername" for="InputUsername"></label>
+                            <input class="form-control form-control-lg" placeholder="Enter unsername" asp-for="InputUsername" id="InputUsername" />
+                        </div>
+
+                        @* Password input *@
+                        <div data-mdb-input-init class="form-outline mb-3">
+                            <label class="form-label" for="form3Example4" asp-for="InputPassword"></label>
+                            <input type="password" class="form-control form-control-lg" placeholder="Enter password" id="Password" asp-for="InputPassword" />
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input  type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Login">
+                        </div>
+
+                        @if (ViewData.ModelState.Count > 0)
+                        {
+                            foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <div class="alert alert-danger">
+                                    @error.ErrorMessage
+                                </div>
+                            }
+                        }
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

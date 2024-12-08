@@ -18,7 +18,12 @@ namespace BuffMail.Models
         [Display(Name = "Delivery Date")]
         [DataType(DataType.Date)]
         [Required]
-        public DateTime DeliveryDate {get;set;}
+        public DateTime InProcessDate {get;set;}
+
+        [BindProperty]
+        [Display(Name = "Pick-Up Date")]
+        [DataType(DataType.Date)]
+        public DateTime OutProcessDate {get;set;}
 
         [BindProperty]
         [Display(Name = "Package Status")]

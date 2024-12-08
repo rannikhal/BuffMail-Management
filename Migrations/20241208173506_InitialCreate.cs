@@ -47,8 +47,10 @@ namespace BuffMail_Management.Migrations
                     PackageID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     PostalServiceAgency = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
-                    DeliveryDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    InProcessDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    OutProcessDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     PackageStatus = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
+                    TrackingCode = table.Column<string>(type: "TEXT", maxLength: 40, nullable: false),
                     ResidentID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

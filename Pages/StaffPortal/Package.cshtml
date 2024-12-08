@@ -1,0 +1,20 @@
+@page
+@model PackageModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">BuffMail Management</h1>
+</div>
+
+<div>
+    <h3>Package</h3>
+
+    <p>Resident: @Model.SelectedPackage.Resident.Name</p>
+    <p>Unit #: @Model.SelectedPackage.Resident.UnitNumber</p>
+    <p>Postal Service Agency: @Model.SelectedPackage.PostalServiceAgency</p>
+    <p>Delivery Date: @Model.SelectedPackage.InProcessDate</p>
+    <p>Tracking Code: @Model.SelectedPackage.TrackingCode</p>
+
+</div>
