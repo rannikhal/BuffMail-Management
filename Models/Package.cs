@@ -26,6 +26,11 @@ namespace BuffMail.Models
         [Required]
         public string? PackageStatus {get;set;}
 
+        [BindProperty]
+        [StringLength(40)]
+        [Required]
+        public string? TrackingCode {get;set;}
+
         public Resident Resident {get;set;} = null!; // navigation property that connects to Resident
         public int ResidentID {get;set;} // FK
     } 
