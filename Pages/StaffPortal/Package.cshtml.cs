@@ -4,6 +4,7 @@ using BuffMail.Models;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BuffMail_Management.Pages.StaffPortal;
 
@@ -14,6 +15,8 @@ public class PackageModel : PageModel
 
     [BindProperty]
     public Package SelectedPackage {get;set;} = default!;
+    public Resident Resident {get;set;} = default!;
+    public SelectList ResidentDropDown {get;set;} = default!;
 
     public PackageModel(BuffMailDbContext context, ILogger<PackageModel> logger)
     {
@@ -28,6 +31,10 @@ public class PackageModel : PageModel
             return NotFound();
         }
 
+        ResidentDropDown = new SelectList(_context.Resident, "ResidentID", "Name");
+        // ResidentDropDown = new SelectList(_context.Resident.Where(r => r.Name != "Unknown"), "ResidentID", "Name");
+
+
         SelectedPackage = await _context.Package.Include(p => p.Resident).FirstOrDefaultAsync(p => p.PackageID == id);
 
         if (SelectedPackage == null)
@@ -37,8 +44,16 @@ public class PackageModel : PageModel
         return Page();
     }
 
-    public void OnPost()
+    public IActionResult OnPost()
     {
-        
+        if (!ModelState.IsValid)
+        {
+            return Page();
+        }
+
+        _context.Package.Update(SelectedPackage);
+        _context.SaveChanges();
+
+        return RedirectToPage("/StaffPortal/Index");
     }
 }

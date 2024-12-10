@@ -5,7 +5,17 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">BuffMail Management</h1>
+    <h1 class="display-4">Staff Portal</h1>
+</div>
+
+<div class="input-group">
+  <div class="form-outline" data-mdb-input-init>
+    <input id="search-input" type="search" id="form1" class="form-control" />
+    <label class="form-label" for="form1">Search</label>
+  </div>
+  <button id="search-button" type="submit" class="btn btn-primary" method="SearchBar(search-input)">
+    <i class="fas fa-search"></i>
+  </button>
 </div>
 
 <div>
@@ -26,6 +36,7 @@
                     <th scope="col">Postal Service Agency</th>
                     <th scope="col">Delivery Date</th>
                     <th scope="col">Tracking Code</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -33,11 +44,12 @@
                 @foreach(var p in Model.PackagesAwaitingPickup)
                 {
                     <tr>
-                        <td><a asp-page="./Resident" asp-route-id="@p.Resident.ResidentID">@Html.DisplayFor(modelItem => p.Resident.Name)</a></td>
-                        <td><a asp-page="./Resident" asp-route-id="@p.Resident.ResidentID">@Html.DisplayFor(modelItem => p.Resident.UnitNumber)</a></td>
-                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">@Html.DisplayFor(modelItem => p.PostalServiceAgency)</a></td>
-                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">@Html.DisplayFor(modelItem => p.InProcessDate)</a></td>
-                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">@Html.DisplayFor(modelItem => p.TrackingCode)</a></td>
+                        <td>@Html.DisplayFor(modelItem => p.Resident.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => p.Resident.UnitNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
+                        <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
+                        <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
+                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">Edit</a></td>
                     </tr>
                 }
             </tbody>
@@ -63,6 +75,7 @@
                     <th scope="col">Postal Service Agency</th>
                     <th scope="col">Delivery Date</th>
                     <th scope="col">Tracking Code</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -73,11 +86,10 @@
                         <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
                         <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
                         <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
+                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">Edit</a></td>
                     </tr>
                 }
             </tbody>
         </table>
     }
 </div>
-
-
