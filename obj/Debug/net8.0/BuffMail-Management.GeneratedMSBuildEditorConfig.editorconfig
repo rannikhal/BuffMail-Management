@@ -17,63 +17,63 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BuffMail_Management
 build_property.RootNamespace = BuffMail_Management
-build_property.ProjectDir = c:\Users\giank\Documents\CIDM 4360\BuffMail-Management\
+build_property.ProjectDir = C:\Users\giank\Documents\CIDM 4360\BuffMail-Management\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\giank\Documents\CIDM 4360\BuffMail-Management
+build_property.MSBuildProjectDirectory = C:\Users\giank\Documents\CIDM 4360\BuffMail-Management
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Error.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Index.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Privacy.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/ArchivedPackages.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/ArchivedPackages.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZQb3J0YWxcQXJjaGl2ZWRQYWNrYWdlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/Index.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZQb3J0YWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/Package.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/Package.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZQb3J0YWxcUGFja2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/ProcessPackage.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/ProcessPackage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZQb3J0YWxcUHJvY2Vzc1BhY2thZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/Resident.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/Resident.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZQb3J0YWxcUmVzaWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/SearchResults.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/StaffPortal/SearchResults.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZQb3J0YWxcU2VhcmNoUmVzdWx0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/_ViewImports.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/_ViewStart.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Shared/_Layout.cshtml]
+[C:/Users/giank/Documents/CIDM 4360/BuffMail-Management/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-qoqa458l5m

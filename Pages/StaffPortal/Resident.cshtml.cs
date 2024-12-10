@@ -28,7 +28,7 @@ public class ResidentModel : PageModel
             return NotFound();
         }
 
-        SelectedResident = await _context.Resident.FirstOrDefaultAsync(p => p.ResidentID == id);
+        SelectedResident = await _context.Resident.Include(r => r.Packages).FirstOrDefaultAsync(r => r.ResidentID == id);
 
         if (SelectedResident == null)
         {

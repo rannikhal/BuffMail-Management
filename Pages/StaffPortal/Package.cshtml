@@ -1,7 +1,7 @@
 @page
 @model PackageModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Package";
 }
 
 <div class="col-md-9 col-lg-6 col-xl-5 mx-auto">
@@ -11,11 +11,10 @@
 
     <form method="post">
         <div class="form-group form-outline mb-4">
-            <label asp-for="SelectedPackage.ResidentID">Resident</label>
-            <select asp-items="Model.ResidentDropDown" asp-for="SelectedPackage.ResidentID" class="form-control">
-                <option value="">-- select Resident --</option>
-            </select>
-            <span asp-validation-for="SelectedPackage.ResidentID" class="text-danger"></span>
+            @* blocks ability to change resident, but everything else about the package can be edited *@
+            <label asp-for="SelectedPackage.Resident.Name">Resident</label>
+            <input asp-for="SelectedPackage.Resident.Name" class="form-control" disabled /> 
+            <span asp-validation-for="SelectedPackage.Resident.Name" class="text-danger"></span>
         </div>
 
         <div class="form-group form-outline mb-4">
@@ -32,14 +31,25 @@
 
 
         <div class="form-group form-outline mb-4">
-            <label asp-for="SelectedPackage.PackageStatus">Package Status</label>
-            <select asp-for="SelectedPackage.PackageStatus" class="form-control">
-                <option value="Awaiting Pick-up">Awaiting Pick-up</option>
-                <option value="Fulfilled">Fulfilled</option>
-                <option value="Unknown/Return to Sender">Unknown/Return to Sender</option>
-                <option value="Returned to Sender">Returned to Sender</option>
-            </select>
-            <span asp-validation-for="SelectedPackage.PackageStatus" class="text-danger"></span>
+            @* checks to see if resident is unknown and only shows options for unknown packages if they are unknown and vice versa *@
+            @if (Model.SelectedPackage.ResidentID == 101)
+            {
+                <label asp-for="SelectedPackage.PackageStatus">Package Status</label>
+                <select asp-for="SelectedPackage.PackageStatus" class="form-control">
+                    <option value="Unknown/Return to Sender">Unknown/Return to Sender</option>
+                    <option value="Returned to Sender">Returned to Sender</option>
+                </select>
+                <span asp-validation-for="SelectedPackage.PackageStatus" class="text-danger"></span>
+            }
+            else
+            {
+                <label asp-for="SelectedPackage.PackageStatus">Package Status</label>
+                <select asp-for="SelectedPackage.PackageStatus" class="form-control">
+                    <option value="Awaiting Pick-up">Awaiting Pick-up</option>
+                    <option value="Fulfilled">Fulfilled</option>
+                </select>
+                <span asp-validation-for="SelectedPackage.PackageStatus" class="text-danger"></span>
+            }
         </div>
 
         <div class="form-group form-outline mb-4">

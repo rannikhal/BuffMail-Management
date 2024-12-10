@@ -1,15 +1,53 @@
-@* @page
+@page
 @model SearchResultsModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Search Results";
 }
 
 <div class="text-center">
     <h3 class="display-4">Search Results</h3>
 </div>
 
-<div class="col-md-9 col-lg-6 col-xl-5 mx-auto">
+<div>
+    <div class="col-md-9 col-lg-6 col-xl-5 mx-auto">
+        <form method="get">
+            <div class="input-group mb-3">
+                <input class="form-control" name="searchTerm" placeholder="Search by Resident or Unit" aria-label="Search" aria-describedby="basic-addon2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+    </div>
+
+    @if (Model.SearchResults != null && Model.SearchResults.Any())
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Resident</th>
+                    <th scope="col">Unit Number</th>
+                    <th scope="col"># of Pending Packages</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @* iterates through all the packages awaiting pick up and displays the info on a table *@
+                @foreach(var r in Model.SearchResults)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => r.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => r.UnitNumber)</td>
+                        <td>@r.Packages.Count(p => p.PackageStatus == "Awaiting Pick-up")</td>
+                        <td><a asp-page="./Resident" asp-route-id="@r.ResidentID">More info</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No results found.</p>
+    }
 
     
 
-</div> *@
+</div>

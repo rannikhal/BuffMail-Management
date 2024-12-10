@@ -1,45 +1,76 @@
 @page
 @model ResidentModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Resident";
 }
 
 <div class="text-center">
-    <h1 class="display-4">BuffMail Management</h1>
+    <h1 class="display-4">Resident</h1>
 </div>
 
 <div>
-    <h3>Resident</h3>
-
-    <p>Resident: @Model.SelectedResident.Name</p>
+    <p>Name: @Model.SelectedResident.Name</p>
     <p>Unit #: @Model.SelectedResident.UnitNumber</p>
+    <p></p>
 
-    <h4>Packages</h4>
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Postal Service Agency</th>
-                <th scope="col">Delivery Date</th>
-                <th scope="col">Pick-Up Date</th>
-                <th scope="col">Tracking Code</th>
-            </tr>
-        </thead>
-        <tbody>
-            @* iterates through all the unknown packages that need to be returned to sender and displays the info on a table *@
-            @foreach(var p in Model.SelectedResident.Packages)
-            {
+    <h4>Packages Awaiting Pick-Up</h4>
+
+    @if (Model.SelectedResident.Packages.Any(p => p.PackageStatus == "Awaiting Pick-up"))
+    {
+        <table class="table table-striped table-hover">
+            <thead>
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
-                    <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
-                    <td>@Html.DisplayFor(modelItem => p.OutProcessDate)</td>
-                    <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
+                    <th scope="col">Postal Service Agency</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Tracking Code</th>
+                    <th scope="col"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @* iterates through all the packages that are Awaiting Pick-up *@
+                @foreach(var p in Model.SelectedResident.Packages.Where(p => p.PackageStatus == "Awaiting Pick-up"))
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
+                        <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
+                        <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
+                        <td><a asp-page="./Package" asp-route-id="@p.PackageID">Edit</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>There are no packages awaiting to be picked up.</p>
+    }
+        
 
-    @* <p>Postal Service Agency: @Model.SelectedPackage.PostalServiceAgency</p>
-    <p>Delivery Date: @Model.SelectedPackage.InProcessDate</p>
-    <p>Tracking Code: @Model.SelectedPackage.TrackingCode</p> *@
-
+    @* checks if Resident has any package history, and if they do, it shows the packages they have already picked up *@
+    @if (Model.SelectedResident.Packages.Where(p => p.PackageStatus == "Fulfilled").Any())
+    {
+        <h4>Package History</h4>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Postal Service Agency</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Pick-Up Date</th>
+                    <th scope="col">Tracking Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* iterates through all the packages that have been fulfillled *@
+                @foreach(var p in Model.SelectedResident.Packages.Where(p => p.PackageStatus == "Fulfilled"))
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
+                        <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
+                        <td>@Html.DisplayFor(modelItem => p.OutProcessDate)</td>
+                        <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>

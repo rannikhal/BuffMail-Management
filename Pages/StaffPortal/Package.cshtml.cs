@@ -32,7 +32,6 @@ public class PackageModel : PageModel
         }
 
         ResidentDropDown = new SelectList(_context.Resident, "ResidentID", "Name");
-        // ResidentDropDown = new SelectList(_context.Resident.Where(r => r.Name != "Unknown"), "ResidentID", "Name");
 
 
         SelectedPackage = await _context.Package.Include(p => p.Resident).FirstOrDefaultAsync(p => p.PackageID == id);

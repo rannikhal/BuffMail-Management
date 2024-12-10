@@ -124,7 +124,8 @@ namespace BuffMail.Models
                         new Resident {Name = "Elvin Mico", Email = wt_email, UnitNumber = 507},
                         new Resident {Name = "Nicolas Hanratty", Email = wt_email, UnitNumber = 508},
                         new Resident {Name = "Gary Jochens", Email = wt_email, UnitNumber = 509},
-                        new Resident {Name = "Alexina Tarbard", Email = wt_email, UnitNumber = 510}
+                        new Resident {Name = "Alexina Tarbard", Email = wt_email, UnitNumber = 510},
+                        new Resident {Name = "Unknown", Email = "Unknown", UnitNumber = 0}
                     );
                 }
 

@@ -1,81 +1,67 @@
 @page
 @model ProcessPackageModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Process Package";
 }
 
-<div class="text-center">
-    <h1 class="display-4">BuffMail Management</h1>
+<div class="col-md-9 col-lg-6 col-xl-5 mx-auto">
+    <div class="text-center">
+        <h3>Package</h3>
+    </div>
+
+    <form method="post">
+        <!-- Resident Selection -->
+        <div>
+            <label asp-for="Package.ResidentID">Resident</label>
+            <select asp-items="Model.ResidentDropDown" asp-for="Package.ResidentID" class="form-control">
+                <option value="">-- Select Resident --</option>
+            </select>
+            <span asp-validation-for="Package.ResidentID" class="text-danger"></span>
+        </div>
+
+        <!-- Postal Service Agency -->
+        <div>
+            <label asp-for="Package.PostalServiceAgency">Postal Service Agency</label>
+            <select asp-for="Package.PostalServiceAgency" class="form-control">
+                <option value="DHL">DHL</option>
+                <option value="FedEx">FedEx</option>
+                <option value="UPS">UPS</option>
+                <option value="USPS">USPS</option>
+                <option value="Other">Other</option>
+            </select>
+            <span asp-validation-for="Package.PostalServiceAgency" class="text-danger"></span>
+        </div>
+
+        <!-- Tracking Code -->
+        <div>
+            <label asp-for="Package.TrackingCode">Tracking Code</label>
+            <input asp-for="Package.TrackingCode" class="form-control" />
+            <span asp-validation-for="Package.TrackingCode" class="text-danger"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+            <button type="submit" class="btn btn-primary">Submit Package</button>
+        </div>
+    </form>
+
 </div>
 
-<div>
-    <h3>Packages Awaiting Pickup</h3>
+<script>
+    function toggleResidentInput() {
+        const isUnknownCheckbox = document.getElementById("IsResidentUnknown");
+        const residentDropdown = document.getElementById("resident-select");
+        const residentTextbox = document.getElementById("resident-name");
 
-    @* checks if there are any records in the table and shows a message if there are none *@
-    @if (Model.FulfilledPackages == null || !Model.FulfilledPackages.Any())
-    {
-        <p>There are no packages awaiting pick-up.</p>
+        if (isUnknownCheckbox.checked) {
+            residentDropdown.style.display = "none"; // Hide dropdown
+            residentTextbox.style.display = "block"; // Show textbox
+        } else {
+            residentDropdown.style.display = "block"; // Show dropdown
+            residentTextbox.style.display = "none"; // Hide textbox
+        }
     }
-    else
-    {
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Resident</th>
-                    <th scope="col">Unit Number</th>
-                    <th scope="col">Postal Service Agency</th>
-                    <th scope="col">Delivery Date</th>
-                    <th scope="col">Tracking Code</th>
-                </tr>
-            </thead>
-            <tbody>
-                @* iterates through all the packages awaiting pick up and displays the info on a table *@
-                @foreach(var p in Model.FulfilledPackages)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => p.Resident.Name)</td>
-                        <td>@Html.DisplayFor(modelItem => p.Resident.UnitNumber)</td>
-                        <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
-                        <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
-                        <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-</div>
 
-<hr>
-
-<div>
-    <h3>Unknown Packages/Awaiting Return to Sender</h3>
-
-    @* checks if there are any records in the table and omits the table if there are none *@
-    @if (Model.ReturnedPackages == null || !Model.ReturnedPackages.Any())
-    {
-        <p>There are no packages awaiting pick-up.</p>
-    }
-    else
-    {
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Postal Service Agency</th>
-                    <th scope="col">Delivery Date</th>
-                    <th scope="col">Tracking Code</th>
-                </tr>
-            </thead>
-            <tbody>
-                @* iterates through all the unknown packages that need to be returned to sender and displays the info on a table *@
-                @foreach(var p in Model.ReturnedPackages)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => p.PostalServiceAgency)</td>
-                        <td>@Html.DisplayFor(modelItem => p.InProcessDate)</td>
-                        <td>@Html.DisplayFor(modelItem => p.TrackingCode)</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-</div>
+    // Initialize visibility based on checkbox state on page load
+    document.addEventListener("DOMContentLoaded", toggleResidentInput);
+</script>
