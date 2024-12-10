@@ -133,14 +133,14 @@ namespace BuffMail.Models
                     context.Package.AddRange(
                         new Package {PostalServiceAgency = "UPS", InProcessDate = DateTime.Today, PackageStatus = "Awaiting Pick-up", TrackingCode = "1234", ResidentID = 1},
                         new Package {PostalServiceAgency = "UPS", InProcessDate = DateTime.Today, PackageStatus = "Awaiting Pick-up", TrackingCode = "5678", ResidentID = 2},
-                        new Package {PostalServiceAgency = "Fedex", InProcessDate = DateTime.Today, PackageStatus = "Awaiting Pick-up", TrackingCode = "9012", ResidentID = 3},
+                        new Package {PostalServiceAgency = "FedEx", InProcessDate = DateTime.Today, PackageStatus = "Awaiting Pick-up", TrackingCode = "9012", ResidentID = 3},
                         new Package {PostalServiceAgency = "DHL", InProcessDate = DateTime.Today, PackageStatus = "Awaiting Pick-up", TrackingCode = "3456", ResidentID = 4},
-                        new Package {PostalServiceAgency = "Fedex", InProcessDate = DateTime.Today, PackageStatus = "Awaiting Pick-up", TrackingCode = "6789", ResidentID = 5},
+                        new Package {PostalServiceAgency = "FedEx", InProcessDate = DateTime.Today, PackageStatus = "Awaiting Pick-up", TrackingCode = "6789", ResidentID = 5},
                         new Package {PostalServiceAgency = "USPS", InProcessDate = DateTime.Today, PackageStatus = "Unknown/Return to Sender", TrackingCode = "0123", ResidentID = 6},
                         new Package {PostalServiceAgency = "UPS", InProcessDate = DateTime.Today, PackageStatus = "Unknown/Return to Sender", TrackingCode = "4567", ResidentID = 7},
                         new Package {PostalServiceAgency = "USPS", InProcessDate = DateTime.Today, PackageStatus = "Unknown/Return to Sender", TrackingCode = "7890", ResidentID = 8},
                         new Package {PostalServiceAgency = "USPS", InProcessDate = DateTime.Today, PackageStatus = "Unknown/Return to Sender", TrackingCode = "0987", ResidentID = 9},
-                        new Package {PostalServiceAgency = "Fedex", InProcessDate = DateTime.Today, PackageStatus = "Unknown/Return to Sender", TrackingCode = "6543", ResidentID = 10}
+                        new Package {PostalServiceAgency = "FedEx", InProcessDate = DateTime.Today, PackageStatus = "Unknown/Return to Sender", TrackingCode = "6543", ResidentID = 10}
                     );
                 }
 
