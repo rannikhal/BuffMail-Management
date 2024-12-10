@@ -22,6 +22,11 @@ public class IndexModel : PageModel
         _logger = logger;
     }
 
+    // public string SearchBar(string search)
+    // {
+
+    // }
+
     public void OnGet()
     {
         PackageList = _context.Package.Include(p => p.Resident).ToList();

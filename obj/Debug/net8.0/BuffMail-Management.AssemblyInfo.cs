@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BuffMail-Management")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3a0a960cf0807e426e5949659b5baadfae078ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72e37797033b6cc64e78763896fbc304e22ef47b")]
 [assembly: System.Reflection.AssemblyProductAttribute("BuffMail-Management")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BuffMail-Management")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
